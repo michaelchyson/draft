@@ -19,8 +19,6 @@ import java.io.InputStream;
 public class JsonUtils {
 
 
-
-
     private static final Logger LOG = LogManager.getLogger(JsonUtils.class);
 
     /**

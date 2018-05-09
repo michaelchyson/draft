@@ -4,6 +4,7 @@ package net.chyson.sink;
 import net.chyson.config.Config;
 import net.chyson.config.Hdfs;
 import net.chyson.filename.PeriodFilename;
+import net.chyson.hadoop.HadoopUtils;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
@@ -36,9 +37,9 @@ public class HdfsRunnable implements Runnable {
     private BlockingQueue<ConsumerRecords<String, String>> recordQueue;
     private BlockingQueue<Map<TopicPartition, OffsetAndMetadata>> offsetQueue;
 
-    private FileSystem fs = null;
-    private OutputStream out = null;
-    private String filenameBuffer = null;
+    private FileSystem fs;
+    private OutputStream out;
+    private String filenameBuffer;
     private Map<TopicPartition, OffsetAndMetadata> offsetMap = new HashMap<>();
 
     private long count = 0L;
@@ -48,7 +49,7 @@ public class HdfsRunnable implements Runnable {
         this.recordQueue = config.getRecordQueue();
         this.offsetQueue = config.getOffsetQueue();
         this.periodFilename = new PeriodFilename(config);
-        getHadoopFileSystem();
+        this.fs = HadoopUtils.getHadoopFileSystem();
     }
 
     @Override
@@ -105,17 +106,6 @@ public class HdfsRunnable implements Runnable {
     }
 
 
-    private void getHadoopFileSystem() {
-        try {
-            Configuration conf = new Configuration();
-            conf.set("fs.hdfs.impl", DistributedFileSystem.class.getName());
-            this.fs = FileSystem.get(conf);
-        } catch (IOException e) {
-            logger.error(e.getMessage(), e);
-        }
-    }
-
-
     private void close() {
         if (out != null) {
             try {
@@ -126,7 +116,6 @@ public class HdfsRunnable implements Runnable {
                 Path newPath = new Path(filenameBuffer.substring(0, filenameBuffer.length() - 4));
                 fs.rename(path, newPath);
                 offsetQueue.put(offsetMap);
-
             } catch (IOException e) {
                 logger.error("error while closing hadoop out stream");
                 logger.error(e.getMessage(), e);

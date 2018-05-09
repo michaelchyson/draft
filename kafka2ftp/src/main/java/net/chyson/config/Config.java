@@ -23,26 +23,15 @@ public class Config {
      * kafka properties config
      */
     private Properties kafka;
+    private Ftp ftp;
     /**
      * specify the queue size
      */
     private Properties queue;
     /**
-     * contains the hadoop file path and filename rule
-     */
-    private Hdfs hdfs;
-    /**
      * the label part in the hadoop file system
      */
     private int index;
-
-    public int getIndex() {
-        return index;
-    }
-
-    public void setIndex(int index) {
-        this.index = index;
-    }
 
     public BlockingQueue<ConsumerRecords<String, String>> getRecordQueue() {
         return recordQueue;
@@ -58,6 +47,14 @@ public class Config {
 
     public void setOffsetQueue(BlockingQueue<Map<TopicPartition, OffsetAndMetadata>> offsetQueue) {
         this.offsetQueue = offsetQueue;
+    }
+
+    public int getIndex() {
+        return index;
+    }
+
+    public void setIndex(int index) {
+        this.index = index;
     }
 
     public Properties getQueue() {
@@ -76,12 +73,12 @@ public class Config {
         this.kafka = kafka;
     }
 
-    public Hdfs getHdfs() {
-        return hdfs;
+    public Ftp getFtp() {
+        return ftp;
     }
 
-    public void setHdfs(Hdfs hdfs) {
-        this.hdfs = hdfs;
+    public void setFtp(Ftp ftp) {
+        this.ftp = ftp;
     }
 
     @Override
@@ -90,9 +87,11 @@ public class Config {
                 "recordQueue=" + recordQueue +
                 ", offsetQueue=" + offsetQueue +
                 ", kafka=" + kafka +
+                ", ftp=" + ftp +
                 ", queue=" + queue +
-                ", hdfs=" + hdfs +
                 ", label=" + index +
                 '}';
     }
+
+
 }

@@ -26,7 +26,6 @@ public class KafkaRunnable extends Thread {
 
     public KafkaRunnable(Config config) {
         this.recordQueue = config.getRecordQueue();
-
         this.offsetQueue = config.getOffsetQueue();
 
         Properties kafka = config.getKafka();
@@ -45,8 +44,6 @@ public class KafkaRunnable extends Thread {
             if (!records.isEmpty()) {
                 try {
                     recordQueue.put(records);
-                    logger.debug("records added into records queue." + " record queue size: " + recordQueue.size());
-                    logger.debug("kafka poll count: " + records.count());
                 } catch (InterruptedException e) {
                     logger.error("interrupted while putting records into records queue");
                     logger.error(e.getMessage(), e);

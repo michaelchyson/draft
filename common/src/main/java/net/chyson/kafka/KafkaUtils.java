@@ -23,7 +23,7 @@ public class KafkaUtils {
      * @param topics     the topics the will be consumed
      * @return kafka consumer
      */
-    public KafkaConsumer<String, String> getConsumer(Properties properties, String... topics) {
+    public static KafkaConsumer<String, String> getConsumer(Properties properties, String... topics) {
         KafkaConsumer<String, String> consumer = new KafkaConsumer<>(properties);
         consumer.subscribe(Arrays.asList(topics));
         LOG.info("consumer subscribe: " + consumer.subscription());

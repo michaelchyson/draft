@@ -21,7 +21,7 @@ public class HadoopUtils {
      *
      * @return hadoop filesystem
      */
-    private static FileSystem getHadoopFileSystem() {
+    public static FileSystem getHadoopFileSystem() {
         try {
             Configuration conf = new Configuration();
             conf.set("fs.hdfs.impl", DistributedFileSystem.class.getName());

@@ -1,0 +1,58 @@
+{
+  "kafka": {
+    "key.deserializer": "org.apache.kafka.common.serialization.StringDeserializer",
+    "value.deserializer": "org.apache.kafka.common.serialization.StringDeserializer",
+    "timeout": 1,
+    "bootstrap.servers": "yspetl12:6667,yspetl13:6667,yspetl14:6667,yspetl15:6667,yspetl16:6667,yspetl16:6667,yspetl18:6667,yspetl19:6667,yspetl20:6667,yspetl21:6667",
+    "group.id": "kafka2kafka-new-ftp",
+    "auto.offset.reset": "latest",
+    "max.records": 500,
+    "topic": "mc_event_topic"
+  },
+  "queue": {
+    "record.queue.size": 30,
+    "offset.queue.size": 30
+  },
+  "ftp": {
+    "common": {
+      "prefix": "MC",
+      "suffix": "csv",
+      "path": "/gpfs",
+      "period": 1,
+      "host": "10.4.56.224",
+      "port": 21,
+      "username": "ocsp",
+      "password": "ocsp@#123",
+      "time.format": "yyyyMMddHHmmss"
+    },
+    "special": [
+      {
+        "label": "00000"
+      },
+      {
+        "label": "00001"
+      },
+      {
+        "label": "00002"
+      },
+      {
+        "label": "00003"
+      },
+      {
+        "label": "00004"
+      },
+      {
+        "label": "00006"
+      },
+      {
+        "label": "00007"
+      },
+      {
+        "label": "00008"
+      },
+      {
+        "label": "00009"
+      }
+    ]
+  }
+}

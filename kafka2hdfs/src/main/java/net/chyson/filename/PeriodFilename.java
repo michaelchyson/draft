@@ -40,7 +40,7 @@ public class PeriodFilename implements FileNameInterface, Runnable {
         this.path = config.getHdfs().getCommon().getProperty("path");
         this.subdir = config.getHdfs().getCommon().getProperty("subdir");
         this.period = (int) config.getHdfs().getCommon().get("period");
-        this.label = config.getHdfs().getSpecial()[config.getLabel()].getProperty("label");
+        this.label = config.getHdfs().getSpecial()[config.getIndex()].getProperty("label");
         this.dateFormat = new SimpleDateFormat(config.getHdfs().getCommon().getProperty("yyyyMMddHHmmss"));
         this.runner = new PeriodRunner();
         this.runner.scheduleAtFixedRate(this, period);
