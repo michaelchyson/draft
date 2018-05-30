@@ -8,6 +8,7 @@
     </option>
     <option name="ignoredFiles">
       <set>
+        <option value="$PROJECT_DIR$/kafka-producer/pom.xml" />
         <option value="$PROJECT_DIR$/kafka2kafka/pom.xml" />
       </set>
     </option>

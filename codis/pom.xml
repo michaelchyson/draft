@@ -9,34 +9,21 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>data-transfer</artifactId>
-    <packaging>jar</packaging>
+    <artifactId>codis</artifactId>
 
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <common.version>1.0-SNAPSHOT</common.version>
         <transfer-api.version>1.0-SNAPSHOT</transfer-api.version>
-        <kafka.version>1.0-SNAPSHOT</kafka.version>
     </properties>
+
 
     <dependencies>
         <dependency>
             <groupId>net.chyson</groupId>
             <artifactId>common</artifactId>
             <version>${common.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>net.chyson</groupId>
-            <artifactId>transfer-api</artifactId>
-            <version>${transfer-api.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>net.chyson</groupId>
-            <artifactId>kafka</artifactId>
-            <version>${kafka.version}</version>
         </dependency>
     </dependencies>
 

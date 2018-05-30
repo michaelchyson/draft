@@ -27,7 +27,7 @@ public class JsonUtils {
      *
      * @param path  configuration file path
      * @param clazz the Class you want parse the json file into
-     * @param <T> the class you want to parse into
+     * @param <T>   the class you want to parse into
      * @return the configuration file object
      */
     public static <T> T parse(String path, Class<T> clazz) {
