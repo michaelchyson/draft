@@ -7,13 +7,28 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="common" />
+        <module name="datatransfer" />
+        <module name="hadoop" />
+        <module name="kafka" />
+        <module name="kafka-producer" />
+        <module name="kafka2ftp" />
         <module name="kafka2hdfs" />
+        <module name="transfer" />
+        <module name="transfer-api" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="common" target="1.7" />
+      <module name="datatransfer" target="1.7" />
       <module name="draft" target="1.7" />
+      <module name="hadoop" target="1.7" />
+      <module name="kafka" target="1.7" />
+      <module name="kafka-producer" target="1.7" />
+      <module name="kafka2ftp" target="1.7" />
       <module name="kafka2hdfs" target="1.7" />
+      <module name="kafka2kafka" target="1.7" />
+      <module name="transfer" target="1.7" />
+      <module name="transfer-api" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>

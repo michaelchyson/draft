@@ -1,0 +1,3 @@
+46000 time|imei|imsi|lac2|ci2|rat|type|event_id|lasttimsi|current_tmsi|last_lac
+46000 time|imei|imsi|lac2|ci2|rat|type|event_id|lasttimsi|current_tmsi|last_lac
+46000 time|imei|imsi|lac2|ci2|rat|type|event_id|lasttimsi|current_tmsi|last_lac

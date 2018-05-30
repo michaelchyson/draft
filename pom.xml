@@ -11,6 +11,11 @@
         <module>common</module>
         <module>kafka2hdfs</module>
         <module>kafka2ftp</module>
+        <module>transfer</module>
+        <module>kafka-producer</module>
+        <module>hadoop</module>
+        <module>kafka</module>
+        <module>transfer-api</module>
     </modules>
 
     <packaging>pom</packaging>
