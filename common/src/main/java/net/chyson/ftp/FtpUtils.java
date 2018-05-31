@@ -12,7 +12,6 @@ import java.util.Properties;
  * 5/8/2018
  */
 public class FtpUtils {
-    private static final Logger LOG = LogManager.getLogger(FtpUtils.class);
 
     /**
      * the properties should contain host,port,username,password,default.directory properties
@@ -36,7 +35,7 @@ public class FtpUtils {
             ftpClient.changeWorkingDirectory(defaultDirectory);
             return ftpClient;
         } catch (IOException e) {
-            LOG.error(e.getMessage(), e);
+            e.printStackTrace();
         }
         return null;
 

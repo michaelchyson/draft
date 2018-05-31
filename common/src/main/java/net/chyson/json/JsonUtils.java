@@ -19,8 +19,6 @@ import java.io.InputStream;
 public class JsonUtils {
 
 
-    private static final Logger LOG = LogManager.getLogger(JsonUtils.class);
-
     /**
      * pass in a json configuration file
      * and parse into the T object
@@ -36,18 +34,18 @@ public class JsonUtils {
             is = new FileInputStream(path);
             String text = IOUtils.toString(is, "utf-8");
             T t = JSON.parseObject(text, clazz);
-            LOG.info(t);
+            System.out.println(t);
             return t;
         } catch (FileNotFoundException e1) {
-            LOG.error(e1.getMessage(), e1);
+            e1.printStackTrace();
         } catch (IOException e2) {
-            LOG.error(e2.getMessage(), e2);
+            e2.printStackTrace();
         } finally {
             if (is != null) {
                 try {
                     is.close();
                 } catch (IOException e) {
-                    LOG.error(e.getMessage(), e);
+                    e.printStackTrace();
                 }
             }
         }

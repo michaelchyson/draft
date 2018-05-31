@@ -14,7 +14,6 @@ import java.io.IOException;
  */
 public class HadoopUtils {
 
-    private static final Logger LOG = LogManager.getLogger(HadoopUtils.class);
 
     /**
      * default, it use the hadoop configuration in the resource
@@ -27,7 +26,7 @@ public class HadoopUtils {
             conf.set("fs.hdfs.impl", DistributedFileSystem.class.getName());
             return FileSystem.get(conf);
         } catch (IOException e) {
-            LOG.error(e.getMessage(), e);
+            e.printStackTrace();
         }
         return null;
     }

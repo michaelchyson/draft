@@ -13,7 +13,6 @@ import java.util.Properties;
  */
 public class KafkaUtils {
 
-    private static final Logger LOG = LogManager.getLogger(KafkaUtils.class);
 
     /**
      * pass in the kafka configuration properties and the topics
@@ -26,7 +25,7 @@ public class KafkaUtils {
     public static KafkaConsumer<String, String> getConsumer(Properties properties, String... topics) {
         KafkaConsumer<String, String> consumer = new KafkaConsumer<>(properties);
         consumer.subscribe(Arrays.asList(topics));
-        LOG.info("consumer subscribe: " + consumer.subscription());
+        System.out.println("consumer subscribe: " + consumer.subscription());
         return consumer;
     }
 
