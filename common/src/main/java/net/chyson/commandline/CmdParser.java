@@ -13,7 +13,7 @@ public class CmdParser {
     protected static CommandLine commandLine;
 
 
-    public static void initTansfer() {
+    protected static void initTansfer() {
         options.addOption("h", "help", false, "Print this usage information");
         options.addOption("su", "source", true, "source configuration file path");
         options.addOption("sn", "sink", true, "sink configuration file path");
@@ -31,13 +31,9 @@ public class CmdParser {
 
 
     public static void main(String[] args) throws ParseException {
-
-        CommandLine commandLine = parser.parse(options, args);
-        if (commandLine.hasOption('h')) {
-            HelpFormatter formatter = new HelpFormatter();
-            formatter.printHelp("syntax", options);
-            System.exit(0);
-        }
+        initTansfer();
+        commandLine = parser.parse(options, args);
+        help();
         if (commandLine.hasOption('f')) {
             String file = commandLine.getOptionValue('f');
             System.out.println(file);

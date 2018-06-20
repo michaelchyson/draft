@@ -12,7 +12,6 @@
         <module>kafka2hdfs</module>
         <module>kafka2ftp</module>
         <module>transfer</module>
-        <module>hadoop</module>
         <module>kafka</module>
         <module>transfer-api</module>
         <module>codis</module>

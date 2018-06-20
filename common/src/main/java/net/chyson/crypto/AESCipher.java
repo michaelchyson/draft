@@ -9,6 +9,7 @@ import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 
 import org.apache.commons.codec.binary.Base64;
+import org.codehaus.jackson.map.Serializers;
 
 /**
  * michael.chyson
@@ -21,7 +22,7 @@ public class AESCipher {
 
     private SecretKeySpec key;
 
-    public AESCipher(String key) throws NoSuchPaddingException, NoSuchAlgorithmException {
+    public AESCipher(String key) {
         byte[] decode = new Base64().decode(key);
 
         this.key = new SecretKeySpec(decode, ALGORITHM);
@@ -47,6 +48,7 @@ public class AESCipher {
         return new String(bytes);
 
     }
+
 
     public static void main(String[] args) throws Exception {
         String KEY = "oKHzBrHOUzUh2sziSAtOvg==";
